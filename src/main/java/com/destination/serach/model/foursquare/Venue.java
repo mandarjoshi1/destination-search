@@ -2,6 +2,8 @@
 package com.destination.serach.model.foursquare;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -103,4 +105,8 @@ public class Venue {
         this.hasPerk = hasPerk;
     }
 
+    public boolean checkCategories(String category){
+       List filteredCatagories =  categories.stream().filter(c -> c.getName().contains(category)).collect(Collectors.toList());
+       return filteredCatagories.size()>0;
+    }
 }

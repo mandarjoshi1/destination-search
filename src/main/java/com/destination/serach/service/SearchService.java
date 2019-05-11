@@ -37,9 +37,10 @@ public class SearchService {
                     .collect(Collectors.toList());
 
         }
+
         FoursquareVenuesResponse foursquareVenuesResponse = foursquareClient.searchForVenues(request.getCity(), request.getQuery());
 
-        return CommonHelper.foursquareVenuestoSearchResult(foursquareVenuesResponse);
+        return CommonHelper.foursquareVenuestoSearchResult(foursquareVenuesResponse, request.getFilters());
     }
 
     private String getAddressFromQueryCity(String query, String city){
