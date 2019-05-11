@@ -2,16 +2,18 @@ package com.destination.serach.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.util.List;
+
 public class SearchResponse {
     private Status status;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String message;
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private Result result;
+    private List<SearchResult> searchResults;
 
-    public SearchResponse(Status status, Result result) {
+    public SearchResponse(Status status, List<SearchResult> searchResults) {
         this.status = status;
-        this.result = result;
+        this.searchResults = searchResults;
     }
 
     public SearchResponse() {
@@ -22,10 +24,10 @@ public class SearchResponse {
         this.message = message;
     }
 
-    public SearchResponse(Status status, String message, Result result) {
+    public SearchResponse(Status status, String message, List<SearchResult> searchResults) {
         this.status = status;
         this.message = message;
-        this.result = result;
+        this.searchResults = searchResults;
     }
 
     public Status getStatus() {
@@ -44,11 +46,11 @@ public class SearchResponse {
         this.message = message;
     }
 
-    public Result getResult() {
-        return result;
+    public List<SearchResult> getSearchResults() {
+        return searchResults;
     }
 
-    public void setResult(Result result) {
-        this.result = result;
+    public void setSearchResults(List<SearchResult> searchResults) {
+        this.searchResults = searchResults;
     }
 }
