@@ -23,9 +23,7 @@ public class SearchController {
 
     @RequestMapping(value = "/search", headers = "X-API-VERSION=1")
     public SearchResponse search(@RequestBody SearchRequest request){
-       if(!SearchRequestValidator.validate(request)){
-           throw new QueryNotFoundException();
-       }
+        SearchRequestValidator.validate(request);
         List<SearchResult> searchResults = searchService.search(request);
         return CommonHelper.getSearchResponse(Status.OK,searchResults);
     }

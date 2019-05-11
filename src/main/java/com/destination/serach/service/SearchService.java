@@ -2,6 +2,7 @@ package com.destination.serach.service;
 
 import com.destination.serach.client.FoursquareClient;
 import com.destination.serach.client.GeocodeClient;
+import com.destination.serach.exception.model.FilterNotFoundException;
 import com.destination.serach.helper.CommonHelper;
 import com.destination.serach.helper.HelperFunctions;
 import com.destination.serach.model.SearchResult;

@@ -1,5 +1,6 @@
 package com.destination.serach.exception;
 
+import com.destination.serach.exception.model.FilterNotFoundException;
 import com.destination.serach.exception.model.QueryNotFoundException;
 import com.destination.serach.model.SearchResponse;
 import com.destination.serach.model.Status;
@@ -16,10 +17,18 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(value
-            = { QueryNotFoundException.class })
+            = { QueryNotFoundException.class, FilterNotFoundException.class })
     protected ResponseEntity<Object> handleConflict(
             RuntimeException ex, WebRequest request) {
         return buildResponseEntity(new SearchResponse(Status.ERROR,ex.getMessage()));
+    }
+
+    @ExceptionHandler(value
+            = { RuntimeException.class })
+    protected ResponseEntity<Object> handleRuntimeExceptionConflict(
+            RuntimeException ex, WebRequest request) {
+
+        return buildResponseEntity(new SearchResponse(Status.ERROR,ex.toString()));
     }
 
     private ResponseEntity<Object> buildResponseEntity(SearchResponse searchResponse) {
