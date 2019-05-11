@@ -6,6 +6,7 @@ public class SearchResponse {
     private Status status;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String message;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Result result;
 
     public SearchResponse(Status status, Result result) {
@@ -14,6 +15,11 @@ public class SearchResponse {
     }
 
     public SearchResponse() {
+    }
+
+    public SearchResponse(Status status, String message) {
+        this.status = status;
+        this.message = message;
     }
 
     public SearchResponse(Status status, String message, Result result) {
