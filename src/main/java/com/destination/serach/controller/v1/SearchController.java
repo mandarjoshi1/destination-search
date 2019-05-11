@@ -1,4 +1,4 @@
-package com.destination.serach.controller;
+package com.destination.serach.controller.v1;
 
 import com.destination.serach.exception.model.QueryNotFoundException;
 import com.destination.serach.helper.ResponseHelper;
@@ -11,7 +11,6 @@ import com.destination.serach.validator.SearchRequestValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
